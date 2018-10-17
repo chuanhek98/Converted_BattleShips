@@ -52,7 +52,7 @@ public class Player : IEnumerable<Ship>
 			}
 		}
 
-		GameController.HumanPlayer.RandomizeDeployment();
+        RandomizeDeployment();
 	}
 
 	/// <summary>
