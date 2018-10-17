@@ -61,6 +61,8 @@ static class DeploymentController
 			GameController.HumanPlayer.RandomizeDeployment();
 			
 		}
+        if (SwinGame.KeyTyped(KeyCode.vk_p))
+            GameController.EndDeployment();
 
 		if (SwinGame.MouseClicked(MouseButton.LeftButton)) {
 			ShipName selected = default(ShipName);
