@@ -244,7 +244,7 @@ static class UtilityFunctions
 				break;
 			default:
 				SwinGame.ClearScreen();
-				break;
+				break; 
 		}
 
 		SwinGame.DrawFramerate(675, 585, GameResources.GameFont("CourierSmall"));

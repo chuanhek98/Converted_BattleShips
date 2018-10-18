@@ -22,12 +22,21 @@ static class EndingGameController
 		UtilityFunctions.DrawField(GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
 		UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 
-		if (GameController.HumanPlayer.IsDestroyed) {
-			SwinGame.DrawTextLines("YOU LOSE!", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-		} else {
-			SwinGame.DrawTextLines("-- WINNER --", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 250, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-		}
-	}
+        SwinGame.ClearScreen();
+
+        if (GameController.HumanPlayer.IsDestroyed)
+        {
+            SwinGame.DrawTextLines("YOU LOSE!", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 200, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
+            SwinGame.DrawTextLines("Do You Wish to Play Again?", Color.White, Color.Transparent, GameResources.GameFont("Courier"), FontAlignment.AlignCenter, 0, 400, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
+            SwinGame.DrawTextLines("\n Yes [Press Y]", Color.White, Color.Transparent, GameResources.GameFont("Courier"), FontAlignment.AlignLeft, 210, 420, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
+            SwinGame.DrawTextLines("\n N  [Press N]", Color.White, Color.Transparent, GameResources.GameFont("Courier"), FontAlignment.AlignLeft, 450, 420, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
+        }
+        else
+        {
+            SwinGame.DrawTextLines("-- WINNER --", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 200, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
+        }
+        
+    }
 
 	/// <summary>
 	/// Handle the input during the end of the game. Any interaction
