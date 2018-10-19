@@ -30,12 +30,20 @@ static class EndingGameController
             SwinGame.DrawTextLines("Do You Wish to Play Again?", Color.White, Color.Transparent, GameResources.GameFont("Courier"), FontAlignment.AlignCenter, 0, 400, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
             SwinGame.DrawTextLines("\n Yes [Press Y]", Color.White, Color.Transparent, GameResources.GameFont("Courier"), FontAlignment.AlignLeft, 210, 420, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
             SwinGame.DrawTextLines("\n N  [Press N]", Color.White, Color.Transparent, GameResources.GameFont("Courier"), FontAlignment.AlignLeft, 450, 420, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-        }
+            if (SwinGame.KeyTyped(KeyCode.vk_y))
+            {
+                GameController.StartGame();
+            }
+            else if (SwinGame.KeyTyped(KeyCode.vk_n))
+            {
+                GameController.EndCurrentState();    
+            }
         else
-        {
+          {
             SwinGame.DrawTextLines("-- WINNER --", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 200, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
+         }
         }
-        
+    
     }
 
 	/// <summary>
