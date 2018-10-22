@@ -58,3 +58,4 @@ C:\Users\User\Documents\GitHub\Converted_BattleShips\obj\x86\Debug-Windows\Battl
 C:\Users\User\Documents\GitHub\Converted_BattleShips\obj\x86\Debug-Windows\BattleShips.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\GitHub\Converted_BattleShips\obj\x86\Debug-Windows\BattleShips.csproj.CopyComplete
 C:\Users\User\Documents\GitHub\Converted_BattleShips\obj\x86\Debug-Windows\BattleShips.exe
+C:\Users\User\Documents\GitHub\Converted_BattleShips\bin\Debug\Resources\sounds\ingamebackgroundmusic.mp3

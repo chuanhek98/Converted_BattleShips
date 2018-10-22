@@ -114,7 +114,10 @@ static class MenuController
 			GameController.EndCurrentState();
 			return true;
 		}
-
+        if(SwinGame.KeyTyped(KeyCode.vk_m))
+            {
+                 SwinGame.StopMusic();
+            }
 		if (SwinGame.MouseClicked(MouseButton.LeftButton)) {
 			int i = 0;
 			for (i = 0; i <= _menuStructure[menu].Length - 1; i++) {

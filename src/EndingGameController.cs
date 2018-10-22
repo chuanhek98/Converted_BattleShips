@@ -40,12 +40,11 @@ static class EndingGameController
             {
                 GameController.EndCurrentState();    
             }
+        }
         else
           {
             SwinGame.DrawTextLines("-- WINNER --", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 200, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
          }
-        }
-    
     }
 
 	/// <summary>
