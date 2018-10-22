@@ -72,6 +72,7 @@ public static class GameController
 
 		//Create the game
 		_theGame = new BattleShipsGame();
+		SwinGame.PlayMusic(GameResources.GameMusic("InGameBackGround"));
 
 		//create the players
 		switch (_aiSetting) {

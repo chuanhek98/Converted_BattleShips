@@ -22,7 +22,9 @@ static class EndingGameController
 		UtilityFunctions.DrawField(GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
 		UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 
+		SwinGame.StopMusic ();
         SwinGame.ClearScreen();
+		SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
 
         if (GameController.HumanPlayer.IsDestroyed)
         {
