@@ -51,13 +51,16 @@ static class DeploymentController
 		}
 
 		if (SwinGame.KeyTyped(KeyCode.vk_UP) | SwinGame.KeyTyped(KeyCode.vk_DOWN)) {
+			UtilityFunctions.Message = "You can now deploy your ship vertical way";
 			_currentDirection = Direction.UpDown;
 		}
 		if (SwinGame.KeyTyped(KeyCode.vk_LEFT) | SwinGame.KeyTyped(KeyCode.vk_RIGHT)) {
+			UtilityFunctions.Message = "You can now deploy your ship horizontal way";
 			_currentDirection = Direction.LeftRight;
 		}
 
 		if (SwinGame.KeyTyped(KeyCode.vk_r)) {
+			UtilityFunctions.Message = "Your ship deployment will be randomized";
 			GameController.HumanPlayer.RandomizeDeployment();
 			
 		}
