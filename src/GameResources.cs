@@ -127,12 +127,13 @@ public static class GameResources
 		int width = 0;
 		int height = 0;
 
+
 		width = SwinGame.ScreenWidth();
 		height = SwinGame.ScreenHeight();
 
 		SwinGame.ChangeScreenSize(800, 600);
 
-		ShowLoadingScreen();
+		ShowLoadingScreen ();
 
 		ShowMessage("Loading fonts...", 0);
 		LoadFonts();
@@ -153,7 +154,11 @@ public static class GameResources
 		SwinGame.Delay(100);
 		ShowMessage("Game loaded...", 5);
 		SwinGame.Delay(100);
-		EndLoadingScreen(width, height);
+
+	
+
+		EndLoadingScreen (width, height);
+
 	}
 
 	private static void ShowLoadingScreen()
@@ -170,7 +175,7 @@ public static class GameResources
 		_LoaderFull = SwinGame.LoadBitmap(SwinGame.PathToResource("loader_full.png", ResourceKind.BitmapResource));
 		_LoaderEmpty = SwinGame.LoadBitmap(SwinGame.PathToResource("loader_empty.png", ResourceKind.BitmapResource));
 
-		PlaySwinGameIntro();
+		PlaySwinGameIntro ();
 	}
 
 	private static void PlaySwinGameIntro()

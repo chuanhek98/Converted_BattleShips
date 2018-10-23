@@ -13,7 +13,8 @@ static class GameLogic
 		SwinGame.OpenGraphicsWindow("Battle Ships", 800, 600);
 
 		//Load Resources
-		GameResources.LoadResources();
+
+			GameResources.LoadResources ();
 
 		SwinGame.PlayMusic(GameResources.GameMusic("Background"));
 

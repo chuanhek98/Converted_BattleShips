@@ -97,18 +97,20 @@ static class HighScoreController
 	/// </remarks>
 	private static void SaveScores()
 	{
+
 		string filename = null;
-		filename = SwinGame.PathToResource("highscores.txt");
+		filename = SwinGame.PathToResource ("highscores.txt");
 
 		StreamWriter output = default(StreamWriter);
-		output = new StreamWriter(filename);
+		output = new StreamWriter(filename,true);
 
-		output.WriteLine(_Scores.Count);
+
 
 		foreach (Score s in _Scores) {
 			output.WriteLine(s.Name + s.Value);
-		}
 
+		}
+			
 		output.Close();
 	}
 
@@ -117,14 +119,17 @@ static class HighScoreController
 	/// </summary>
 	public static void DrawHighScores()
 	{
-		const int SCORES_HEADING = 40;
-		const int SCORES_TOP = 80;
-		const int SCORE_GAP = 30;
+		const int SCORES_HEADING = 250;
+		const int SCORES_TOP = 270;
+		const int SCORE_GAP = 25;
+
+		const int CON_HEADING = 450;
+		const int CON_LEFT = 200;
 
 		if (_Scores.Count == 0)
 			LoadScores();
 
-		SwinGame.DrawText("   High Scores   ", Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_HEADING);
+		SwinGame.DrawText("   High Scores   ", Color.Yellow, GameResources.GameFont("Courier"), SCORES_LEFT+170, SCORES_HEADING);
 
 		//For all of the scores
 		int i = 0;
@@ -135,10 +140,14 @@ static class HighScoreController
 
 			//for scores 1 - 9 use 01 - 09
 			if (i < 9) {
-				SwinGame.DrawText(" " + (i + 1) + ":   " + s.Name + "   " + s.Value, Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
+				SwinGame.DrawText(" " + (i + 1) + ":   " + s.Name + "   " + s.Value, Color.Black, GameResources.GameFont("Courier"), SCORES_LEFT+170, SCORES_TOP + i * SCORE_GAP);
 			} else {
-				SwinGame.DrawText(i + 1 + ":   " + s.Name + "   " + s.Value, Color.White, GameResources.GameFont("Courier"), SCORES_LEFT, SCORES_TOP + i * SCORE_GAP);
+				SwinGame.DrawText(i + 1 + ":   " + s.Name + "   " + s.Value, Color.Black, GameResources.GameFont("Courier"), SCORES_LEFT+170, SCORES_TOP + i * SCORE_GAP);
 			}
+
+			if (i < 9) {
+				SwinGame.DrawText (" Congratulations  " + s.Name + " your scores are in top 10", Color.Black, GameResources.GameFont ("Courier"),CON_LEFT,CON_HEADING);
+			} 
 		}
 	}
 
