@@ -3,6 +3,7 @@ using Microsoft.VisualBasic;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+//using System.Data;
 using System.Diagnostics;
 using SwinGameSDK;
 
@@ -17,53 +18,29 @@ static class EndingGameController
 	/// <summary>
 	/// Draw the end of the game screen, shows the win/lose state
 	/// </summary>
-	public static void DrawEndOfGame()
+	public static void DrawEndOfGame ()
 	{
-		UtilityFunctions.DrawField(GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
-		UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
+		UtilityFunctions.DrawField (GameController.ComputerPlayer.PlayerGrid, GameController.ComputerPlayer, true);
+		UtilityFunctions.DrawSmallField (GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 
-		SwinGame.StopMusic ();
-        SwinGame.ClearScreen();
-		SwinGame.PlayMusic (GameResources.GameMusic ("Background"));
-
-        if (GameController.HumanPlayer.IsDestroyed)
-        {
-            SwinGame.DrawTextLines("YOU LOSE!", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 200, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-            SwinGame.DrawTextLines("Do You Wish to Play Again?", Color.White, Color.Transparent, GameResources.GameFont("Courier"), FontAlignment.AlignCenter, 0, 400, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-            SwinGame.DrawTextLines("\n Yes [Press Y]", Color.White, Color.Transparent, GameResources.GameFont("Courier"), FontAlignment.AlignLeft, 210, 420, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-            SwinGame.DrawTextLines("\n N  [Press N]", Color.White, Color.Transparent, GameResources.GameFont("Courier"), FontAlignment.AlignLeft, 450, 420, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-            if (SwinGame.KeyTyped(KeyCode.vk_y))
-            {
-                GameController.StartGame();
-            }
-            else if (SwinGame.KeyTyped(KeyCode.vk_n))
-            {
-                GameController.EndCurrentState();    
-            }
-        }
-        else
-          {
-            SwinGame.DrawTextLines("-- WINNER --", Color.White, Color.Transparent, GameResources.GameFont("ArialLarge"), FontAlignment.AlignCenter, 0, 200, SwinGame.ScreenWidth(), SwinGame.ScreenHeight());
-         }
-    }
+		if (GameController.HumanPlayer.IsDestroyed) {
+			SwinGame.DrawTextLines ("YOU LOSE!", Color.White, Color.Transparent, GameResources.GameFont ("ArialLarge"), FontAlignment.AlignCenter, 0, 50, SwinGame.ScreenWidth (), SwinGame.ScreenHeight ());
+		} else {
+			SwinGame.DrawTextLines ("-- WINNER --", Color.White, Color.Transparent, GameResources.GameFont ("ArialLarge"), FontAlignment.AlignCenter, 0, 50, SwinGame.ScreenWidth (), SwinGame.ScreenHeight ());
+			HandleEndOfGameInput ();
+		}
+	}
 
 	/// <summary>
 	/// Handle the input during the end of the game. Any interaction
 	/// will result in it reading in the highsSwinGame.
 	/// </summary>
-	public static void HandleEndOfGameInput()
+	public static void HandleEndOfGameInput ()
 	{
-		if (SwinGame.MouseClicked(MouseButton.LeftButton) || SwinGame.KeyTyped(KeyCode.vk_RETURN) || SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
-			HighScoreController.ReadHighScore(GameController.HumanPlayer.Score);
-			GameController.EndCurrentState();
+		if (SwinGame.MouseClicked (MouseButton.LeftButton) || SwinGame.KeyTyped (KeyCode.vk_RETURN) || SwinGame.KeyTyped (KeyCode.vk_ESCAPE)) {
+			HighScoreController.ReadHighScore (GameController.HumanPlayer.Score);
+			GameController.EndCurrentState ();
 		}
 	}
 
 }
-
-//=======================================================
-//Service provided by Telerik (www.telerik.com)
-//Conversion powered by NRefactory.
-//Twitter: @telerik
-//Facebook: facebook.com/telerik
-//=======================================================
