@@ -114,10 +114,7 @@ static class MenuController
 			GameController.EndCurrentState();
 			return true;
 		}
-        if(SwinGame.KeyTyped(KeyCode.vk_m))
-            {
-                 SwinGame.StopMusic();
-            }
+
 		if (SwinGame.MouseClicked(MouseButton.LeftButton)) {
 			int i = 0;
 			for (i = 0; i <= _menuStructure[menu].Length - 1; i++) {
@@ -134,8 +131,21 @@ static class MenuController
 			}
 		}
 
+        Mutemusic();
+
 		return false;
 	}
+
+    public static bool Mutemusic()
+    {
+        if(SwinGame.KeyTyped(KeyCode.vk_m))
+            {
+                SwinGame.PauseMusic();
+                return true;
+            }
+        return false;
+
+    }
 
 	/// <summary>
 	/// Draws the main menu to the screen.

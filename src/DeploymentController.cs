@@ -46,6 +46,7 @@ static class DeploymentController
 	/// </remarks>
 	public static void HandleDeploymentInput()
 	{
+
 		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
 			GameController.AddNewState(GameState.ViewingGameMenu);
 		}
@@ -128,6 +129,11 @@ static class DeploymentController
 	public static void DrawDeployment()
 	{
 		UtilityFunctions.DrawField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer, true);
+
+            if(MenuController.Mutemusic()==true)
+            {
+                SwinGame.PauseMusic();
+            }
 
 		//Draw the Left/Right and Up/Down buttons
 		if (_currentDirection == Direction.LeftRight) {
