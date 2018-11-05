@@ -26,6 +26,7 @@ static class MenuController
 			"PLAY",
 			"SETUP",
 			"SCORES",
+			"Help",
 			"QUIT"
 		},
 		new string[] {
@@ -55,8 +56,9 @@ static class MenuController
 	private const int MAIN_MENU_PLAY_BUTTON = 0;
 	private const int MAIN_MENU_SETUP_BUTTON = 1;
 	private const int MAIN_MENU_TOP_SCORES_BUTTON = 2;
+	private const int MAIN_MENU_INSTRUCT = 3;
 
-	private const int MAIN_MENU_QUIT_BUTTON = 3;
+	private const int MAIN_MENU_QUIT_BUTTON = 4;
 	private const int SETUP_MENU_EASY_BUTTON = 0;
 	private const int SETUP_MENU_MEDIUM_BUTTON = 1;
 	private const int SETUP_MENU_HARD_BUTTON = 2;
@@ -69,6 +71,8 @@ static class MenuController
 	private static readonly Color MENU_COLOR = SwinGame.RGBAColor(2, 167, 252, 255);
 
 	private static readonly Color HIGHLIGHT_COLOR = SwinGame.RGBAColor(1, 57, 86, 255);
+
+	private static string current_page = "Current Page";
 	/// <summary>
 	/// Handles the processing of user input when the main menu is showing
 	/// </summary>
@@ -290,11 +294,33 @@ static class MenuController
 			case MAIN_MENU_TOP_SCORES_BUTTON:
 				GameController.AddNewState(GameState.ViewingHighScores);
 				break;
+			case MAIN_MENU_INSTRUCT:
+			GameController.AddNewState (GameState.ViewingInstructMenu);
+			if (GameController.CurrentState == GameState.ViewingInstructMenu) {
+				current_page = "Help Page";
+				}
+				break;
 			case MAIN_MENU_QUIT_BUTTON:
 				GameController.EndCurrentState();
 				break;
 		}
 	}
+
+	public static string Set_Current_Page {
+		get {
+			return current_page;
+		}
+		set {
+			current_page = value;
+		}
+	}
+
+	public static string Get_Current_Page {
+		get {
+			return current_page;
+		}
+	}
+
 
 	/// <summary>
 	/// The setup menu was clicked, perform the button's action.
