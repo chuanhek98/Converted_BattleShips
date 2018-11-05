@@ -46,8 +46,18 @@ static class DeploymentController
 	/// </remarks>
 	public static void HandleDeploymentInput()
 	{
+        if (SwinGame.KeyTyped(KeyCode.vk_u))
+        {
+            SwinGame.PlayMusic(GameResources.GameMusic("InGameBackGround"));
+            SwinGame.ResumeMusic();
+        }
 
-		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
+        if(SwinGame.KeyTyped(KeyCode.vk_m))
+        {
+            SwinGame.PauseMusic();
+        }
+
+        if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
 			GameController.AddNewState(GameState.ViewingGameMenu);
 		}
 
@@ -173,7 +183,7 @@ static class DeploymentController
 		SwinGame.DrawBitmap(GameResources.GameImage("RandomButton"), RANDOM_BUTTON_LEFT, TOP_BUTTONS_TOP);
 
 		UtilityFunctions.DrawMessage();
-	}
+    }
 
 	/// <summary>
 	/// Gets the ship that the mouse is currently over in the selection panel.

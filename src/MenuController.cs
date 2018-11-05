@@ -117,6 +117,7 @@ static class MenuController
 
 		if (SwinGame.MouseClicked(MouseButton.LeftButton)) {
 			int i = 0;
+
 			for (i = 0; i <= _menuStructure[menu].Length - 1; i++) {
 				//IsMouseOver the i'th button of the menu
 				if (IsMouseOverMenu(i, level, xOffset)) {
@@ -131,32 +132,34 @@ static class MenuController
 			}
 		}
 
-        Mutemusic();
+        if (SwinGame.KeyTyped(KeyCode.vk_m))
+        {
+            SwinGame.PauseMusic();
+        }
+        if (SwinGame.KeyTyped(KeyCode.vk_u))
+        {
+            SwinGame.ResumeMusic();
+        }
+        return false;
 
-		return false;
+
 	}
 
-    public static bool Mutemusic()
+
+
+    /// <summary>
+    /// Draws the main menu to the screen.
+    /// </summary>
+    public static void DrawMainMenu()
     {
-        if(SwinGame.KeyTyped(KeyCode.vk_m))
-            {
-                SwinGame.PauseMusic();
-                return true;
-            }
-        return false;
+        //Clears the Screen to Black
+        //SwinGame.DrawText("Main Menu", Color.White, GameFont("ArialLarge"), 50, 50)
+        DrawButtons(MAIN_MENU);
 
     }
 
-	/// <summary>
-	/// Draws the main menu to the screen.
-	/// </summary>
-	public static void DrawMainMenu()
-	{
-		//Clears the Screen to Black
-		//SwinGame.DrawText("Main Menu", Color.White, GameFont("ArialLarge"), 50, 50)
 
-		DrawButtons(MAIN_MENU);
-	}
+
 
 	/// <summary>
 	/// Draws the Game menu to the screen
@@ -167,7 +170,8 @@ static class MenuController
 		//SwinGame.DrawText("Paused", Color.White, GameFont("ArialLarge"), 50, 50)
 
 		DrawButtons(GAME_MENU);
-	}
+
+    }
 
 	/// <summary>
 	/// Draws the settings menu to the screen.

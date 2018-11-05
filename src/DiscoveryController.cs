@@ -21,7 +21,19 @@ static class DiscoveryController
 	/// </remarks>
 	public static void HandleDiscoveryInput()
 	{
-		if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
+        if (SwinGame.KeyTyped(KeyCode.vk_u))
+        {
+            SwinGame.PlayMusic(GameResources.GameMusic("InGameBackGround"));
+            SwinGame.ResumeMusic();
+        }
+
+        if (SwinGame.KeyTyped(KeyCode.vk_m))
+        {
+            SwinGame.PauseMusic();
+        }
+
+
+        if (SwinGame.KeyTyped(KeyCode.vk_ESCAPE)) {
 			GameController.AddNewState(GameState.ViewingGameMenu);
 		}
 
@@ -68,7 +80,8 @@ static class DiscoveryController
 			UtilityFunctions.DrawField(GameController.HumanPlayer.EnemyGrid, GameController.ComputerPlayer, false);
 		}
 
-		UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
+
+        UtilityFunctions.DrawSmallField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer);
 		UtilityFunctions.DrawMessage();
 
 		SwinGame.DrawText(GameController.HumanPlayer.Shots.ToString(), Color.White, GameResources.GameFont("Menu"), SCORES_LEFT, SHOTS_TOP);

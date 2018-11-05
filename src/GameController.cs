@@ -55,8 +55,8 @@ public static class GameController
 		//bottom state will be quitting. If player exits main menu then the game is over
 		_state.Push(GameState.Quitting);
 
-		//at the start the player is viewing the main menu
-		_state.Push(GameState.ViewingMainMenu);
+        //at the start the player is viewing the main menu
+        _state.Push(GameState.ViewingMainMenu);
 	}
 
 	/// <summary>
@@ -70,12 +70,18 @@ public static class GameController
 		if (_theGame != null)
 			EndGame();
 
-		//Create the game
-		_theGame = new BattleShipsGame();
-		SwinGame.PlayMusic(GameResources.GameMusic("InGameBackGround"));
+        //Create the game
+        _theGame = new BattleShipsGame();
 
-		//create the players
-		switch (_aiSetting) {
+        if (SwinGame.KeyTyped(KeyCode.vk_m) == true)
+        {
+            SwinGame.PlayMusic(GameResources.GameMusic("InGameBackGround"));
+            SwinGame.PauseMusic();
+        }
+
+
+        //create the players
+        switch (_aiSetting) {
 			case AIOption.Medium:
 				_ai = new AIMediumPlayer(_theGame);
 				break;
@@ -308,7 +314,8 @@ public static class GameController
 	/// </remarks>
 	public static void DrawScreen()
 	{
-		UtilityFunctions.DrawBackground();
+        
+        UtilityFunctions.DrawBackground();
 
 		switch (CurrentState) {
 			case GameState.ViewingMainMenu:
