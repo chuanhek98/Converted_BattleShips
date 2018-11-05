@@ -140,6 +140,9 @@ static class MenuController
         {
             SwinGame.ResumeMusic();
         }
+		if (SwinGame.KeyTyped (KeyCode.vk_F4)) {
+			SwinGame.ToggleFullScreen (); 
+		}
         return false;
 
 

@@ -140,10 +140,10 @@ static class DeploymentController
 	{
 		UtilityFunctions.DrawField(GameController.HumanPlayer.PlayerGrid, GameController.HumanPlayer, true);
 
-            if(MenuController.Mutemusic()==true)
+           /* if(MenuController.Mutemusic()==true)
             {
                 SwinGame.PauseMusic();
-            }
+            }*/
 
 		//Draw the Left/Right and Up/Down buttons
 		if (_currentDirection == Direction.LeftRight) {
