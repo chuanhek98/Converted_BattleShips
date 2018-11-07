@@ -1,0 +1,10 @@
+9
+Ship Deployment:
+ - R - Randomize
+ - Left/Right - Horizontal Orientation
+ - Up/Down - Vertical Orientation
+______________________________________
+Game:
+ - M - Mute
+ - U - Unmute
+ - F4 - Toggle Fullscreen
